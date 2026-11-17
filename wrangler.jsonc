@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "twc",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-21",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "telegram-clone-worker-db","database_id": "2af07ca1-fe96-4a6a-b928-a4669a2316cd"
+    }
+  ],
+  "triggers": {
+    "crons": ["* * * * *"]
+  },
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": true
+  },
+  "observability": {
+    "enabled": true
+  }
+}
